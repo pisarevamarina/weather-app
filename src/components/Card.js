@@ -1,33 +1,3 @@
-// // // import React from 'react';
-// import moment from 'moment';
-// // // import { Button } from '@material-ui/core';
-// import russianLocale from "moment/locale/ru";
-// moment.updateLocale('ru', russianLocale);
-
-// export default class Card extends React.Component {
-//   render() {
-
-// const ms = this.props.day.dt * 1000;
-// const weekdayName = new Date(ms).toLocaleString('ru', {weekday: 'long'});
-
-//     return (
-//       <div className='col-auto'>
-//         <div className='card bg-light'>
-//           <h3 className='card-title'>{}</h3>
-//           <p className="text-muted">{weekdayName}</p>
-
-//           <h2>{this.props.day.temp.day} °C</h2>
-//           <div className='card-body'>
-//             <Button color="primary">
-//               {this.props.day.weather[0].description}
-//             </Button>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -37,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import russianLocale from "moment/locale/ru";
 import moment from 'moment';
+import Grid from '@material-ui/core/Grid';
 
 moment.updateLocale('ru', russianLocale);
 
