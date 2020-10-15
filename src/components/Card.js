@@ -5,7 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import russianLocale from "moment/locale/ru";
+import russianLocale from 'moment/locale/ru';
 import moment from 'moment';
 import Grid from '@material-ui/core/Grid';
 
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 export default function Cards(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-  const icon = `http://openweathermap.org/img/wn/${props.day.weather[0].icon}@2x.png`
+  const icon = `http://openweathermap.org/img/wn/${props.day.weather[0].icon}@2x.png`;
   const weekDay = props.day.dt * 1000;
   let newDate = new Date();
   newDate.setTime(weekDay);
@@ -49,7 +49,7 @@ export default function Cards(props) {
           color='textSecondary'
           gutterBottom
         >
-         {moment(newDate).format("MMM Do YY")}
+          {moment(newDate).format('MMM Do YY')}
         </Typography>
         <img src={icon}></img>
         <Typography variant='body2' component='p'>

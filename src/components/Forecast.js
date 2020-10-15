@@ -17,8 +17,8 @@ export default class Forecast extends React.Component {
     )
       .then((res) => res.json())
       .then((data) => {
-     const dailyData = data.daily
-     this.setState({days: dailyData})
+        const dailyData = data.daily;
+        this.setState({ days: dailyData });
       });
   };
   renderCards = () => {
@@ -28,7 +28,7 @@ export default class Forecast extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h1 className='display-5 jumbotron'>Прогноз погоды</h1>
+        <h1 className='display-5 jumbotron text-muted'>Прогноз погоды</h1>
         <h5 className='display-7 text-muted'>Ростов-на-Дону</h5>
         <div className='row justify-content-center'>{this.renderCards()}</div>
       </div>
