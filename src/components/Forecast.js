@@ -1,5 +1,7 @@
 import React from 'react';
-import Card from './Card';
+import Cards from './Card';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 
 export default class Forecast extends React.Component {
   constructor(props) {
@@ -11,37 +13,16 @@ export default class Forecast extends React.Component {
 
   componentDidMount = () => {
     fetch(
-      'https://api.openweathermap.org/data/2.5/forecast?q=Rostov-on-Don&lang=ru&units=metric&APPID=5f125c81f099c4c9663f7b46c8e4d885'
+      'https://api.openweathermap.org/data/2.5/onecall?lat=47.222531&lon=-39.718705&units=metric&lang=ru&exclude=hourly,minutely,alerts&appid=5f125c81f099c4c9663f7b46c8e4d885'
     )
       .then((res) => res.json())
       .then((data) => {
-        const newData = data.list.reduce((acc, item) => {
-          const day = item.dt_txt.split(' ')[0]; // Дата как ключ
-          if (!acc[day]) {
-            // если у нас нет такого ключа, то создаем
-            acc[day] = [];
-          }
-          acc[day].push(item.main.temp); // добавляем температуру
-          return acc;
-        }, {});
-
-        const temp = [];
-        for (let item in newData) {
-          const avgTemp = Math.round(
-            newData[item].reduce((acc, cur) => {
-              return acc + cur;
-            }, 0) / newData[item].length
-          );
-          temp.push({
-            day: item,
-            avgTemp: avgTemp,
-          });
-        }
-        this.setState({ days: temp });
+     const dailyData = data.daily
+     this.setState({days: dailyData})
       });
   };
   renderCards = () => {
-    return this.state.days.map((day, i) => <Card day={day} key={i} />);
+    return this.state.days.map((day, i) => <Cards day={day} key={i} />);
   };
 
   render() {
