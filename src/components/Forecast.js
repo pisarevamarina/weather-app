@@ -23,7 +23,7 @@ export default function Forecast() {
   React.useEffect(() => {
     const fetchWeatherData = async () => {
       const data = await fetch(
-        'https://api.openweathermap.org/data/2.5/onecall?lat=47.222531&lon=-39.718705&units=metric&lang=ru&exclude=hourly,minutely,alerts&appid=5f125c81f099c4c9663f7b46c8e4d885'
+        'https://api.openweathermap.org/data/2.5/onecall?lat=47.222531&lon=39.718705&units=metric&lang=ru&exclude=hourly,minutely,alerts&appid=5f125c81f099c4c9663f7b46c8e4d885'
       ).then((res) => res.json());
       const dailyData = data.daily;
       setWeatherData({days: dailyData});

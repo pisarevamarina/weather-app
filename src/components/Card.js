@@ -57,7 +57,7 @@ console.log(props)
         </Typography>
         <img src={icon}></img>
         <Typography variant='body2' component='p'>
-          {props.day.temp.day} °C
+          {Math.round(props.day.temp.day)} °C
         </Typography>
       </CardContent>
       <CardActions>
