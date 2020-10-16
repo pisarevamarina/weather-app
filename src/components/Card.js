@@ -9,6 +9,7 @@ import russianLocale from 'moment/locale/ru';
 import moment from 'moment';
 import Grid from '@material-ui/core/Grid';
 
+
 moment.updateLocale('ru', russianLocale);
 
 const useStyles = makeStyles({
@@ -36,7 +37,10 @@ export default function Cards(props) {
   let newDate = new Date();
   newDate.setTime(weekDay);
 
+console.log(props)
+
   return (
+    <Grid item xs={6}>
     <Card className={classes.root}>
       <CardContent>
         <Typography variant='h5' component='h2'>
@@ -60,5 +64,6 @@ export default function Cards(props) {
         <Button size='small'>{props.day.weather[0].description}</Button>
       </CardActions>
     </Card>
+    </Grid>
   );
 }
